@@ -2,5 +2,5 @@ class Database:
     def __init__(self):
         self.movie_list= []
 
-    def add_movie(self):
-        pass
+    def add_movie(self, movie):
+        self.movie_list.append(movie)
