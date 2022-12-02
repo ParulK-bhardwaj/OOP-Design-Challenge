@@ -3,6 +3,8 @@ from streamingService import StreamingService
 class App: 
   def __init__(self, name, description):
     self.streaming_services = []
+    self.name = name 
+    self.description = description
     #TODO instantiate
 
   
@@ -13,6 +15,10 @@ class App:
     self.streaming_services.pop(streaming_service.id)
 
   #TODO __str__() name and description
+  def _str_(self): 
+    description = f'Hey there! Here is your streaming service information. Name: {self.name}. Description: {self.description}.'
+    print(description)
+
 
 if __name__ == '__main__':
   app = App()
