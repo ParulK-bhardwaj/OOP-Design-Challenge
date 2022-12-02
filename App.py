@@ -1,4 +1,4 @@
-from StreamingService import StreamingService
+from streamingService import StreamingService
 
 class App: 
   def __init__(self):

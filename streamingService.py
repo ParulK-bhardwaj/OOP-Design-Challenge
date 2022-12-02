@@ -1,4 +1,5 @@
 import itertools
+import database from database 
 
 class StreamingService: 
   new_id = itertools.count()
@@ -10,7 +11,7 @@ class StreamingService:
     self.movies = {}
 
   def add_movie(self, movie): 
-    self.movies[movie.id] = movie
+    self.movies._add_movie()
 
   def remove_movie(self, movie):
-    self.movies.pop(movie.id)
+    self.movies._remove_movie()
