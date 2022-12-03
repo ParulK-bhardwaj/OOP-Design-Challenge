@@ -21,8 +21,11 @@ class Database(Movie):
     #public because it needs to be accessed outside of this class and subclasses
     def filter_by_genre(self, genre):
 <<<<<<< HEAD
+<<<<<<< HEAD
         pass
 =======
+=======
+>>>>>>> oop-chris
         filtered_movies = []
 
         for movie in self.__movie_list:
@@ -30,4 +33,7 @@ class Database(Movie):
                 filtered_movies.append(movie)
 
         return filtered_movies
+<<<<<<< HEAD
 >>>>>>> origin/main
+=======
+>>>>>>> oop-chris
