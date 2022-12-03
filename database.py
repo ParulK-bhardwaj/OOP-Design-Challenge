@@ -15,9 +15,7 @@ class Database():
     def remove_movie(self, movie):
         self.__movie_list.remove(movie)
 
-    #cannot be used outside of class therefore is private
-    def reason_to_watch(self):
-        pass
+
 
     def movie_list_display(self):
         number = 0
@@ -50,4 +48,5 @@ if __name__ == "__main__":
 
     disney_database.movie_list_display()
     # print(disney_database.filter_by_genre("Comedy"))
+
 
