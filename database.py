@@ -15,8 +15,6 @@ class Database():
     def remove_movie(self, movie):
         self.__movie_list.remove(movie)
 
-
-
     def movie_list_display(self):
         number = 0
         for movie in self.__movie_list:
@@ -25,15 +23,16 @@ class Database():
             print(movie.__str__())
             print(movie.reason_to_watch())
             
-    #public because it needs to be accessed outside of this class and subclasses
-    # def filter_by_genre(self, genre):
-    #     pass
-    #     filtered_movies = [] 
-    #     for movie in self.__movie_list:
-    #         if genre.lower() == movie.genre.lower():
-    #             filtered_movies.append(movie)
-    #             print(filtered_movies)
-    #     return filtered_movies.__str__()
+    # public because it needs to be accessed outside of this class and subclasses
+    def filter_by_genre(self, genre):
+    
+        filtered_movies = []
+        for movie in self.__movie_list:
+            if genre.lower() == movie.genre.lower():
+                filtered_movies.append(movie)
+                print(filtered_movies)
+
+        return filtered_movies
 
 if __name__ == "__main__":
     disney_database = Database()
