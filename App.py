@@ -7,10 +7,8 @@ from action import ActionMovie
 class App: 
   def __init__(self, name, description):
     self.streaming_services = {}
-    self.name = name 
+    self.name = name
     self.description = description
-    #TODO instantiate
-
   
   def add_streaming_service(self, streaming_service):
     self.streaming_services[streaming_service.name] = streaming_service
