@@ -7,7 +7,6 @@ class App:
     self.description = description
     #TODO instantiate
 
-  
   def add_streaming_service(self, streaming_service):
     self.streaming_services[streaming_service.id] = streaming_service
 
@@ -21,8 +20,8 @@ class App:
 
 
 if __name__ == '__main__':
-  app = App()
-  s1 = StreamingService("s1", "movie", 80)
+  app = App("Movie Bundle", "abc")
+  s1 = StreamingService("s1", "abc", 80)
   s2 = StreamingService("s2", "movie", 80)
   s3 = StreamingService("s3", "movie", 80)
 
