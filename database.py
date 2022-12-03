@@ -22,6 +22,14 @@ class Database():
             print(f"Movie {number}")
             print(movie.__str__())
             print(movie.reason_to_watch())
+
+    def __str__(self):
+        movie_list = ""
+
+        for movie in self.__movie_list:
+            movie_list += f"{str(movie)}, "
+        
+        return movie_list
             
     # public because it needs to be accessed outside of this class and subclasses
     def filter_by_genre(self, genre):

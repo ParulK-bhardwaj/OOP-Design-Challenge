@@ -20,9 +20,7 @@ class App:
 
   #TODO __str__() name and description
   def _str_(self): 
-    description = f'Hey there! Here is your streaming service information. Name: {self.name}. Description: {self.description}.'
-    print(description)
-
+    description = f'Name: {self.name} description:{self.description}'
 
 if __name__ == '__main__':
   app = App("app", "a test app")
@@ -31,14 +29,13 @@ if __name__ == '__main__':
   comedy = ComedyMovie("Space Balls", 1990, "idk", ["no clue"], "english")
   action = ActionMovie("No time to die", 1995, "who cares", ["loser1", "loser2"], "english")
 
-  database.add_movie(comedy)
-
-  s1 = StreamingService("disney plus", "disney's streaming service", 10.99, 0.10, database)
+  s1 = StreamingService("disney plus", "disney's streaming service", 10.99, 10, database)
 
   app.add_streaming_service(s1)
 
-  app.streaming_services[0].database.add_movie(action)
+  app.streaming_services["disney plus"].database.add_movie(action)
+  app.streaming_services["disney plus"].database.add_movie(comedy)
 
-  print(str(app.streaming_services[0]))
+  print(str(app.streaming_services["disney plus"]))
 
   
