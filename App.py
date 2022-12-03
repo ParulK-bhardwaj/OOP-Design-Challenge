@@ -1,17 +1,22 @@
 from streamingService import StreamingService
+from database import Database
+from movie import Movie
+from comedy import ComedyMovie
+from action import ActionMovie
 
 class App: 
   def __init__(self, name, description):
-    self.streaming_services = []
+    self.streaming_services = {}
     self.name = name 
     self.description = description
     #TODO instantiate
 
+  
   def add_streaming_service(self, streaming_service):
-    self.streaming_services[streaming_service.id] = streaming_service
+    self.streaming_services[streaming_service.name] = streaming_service
 
   def remove_streaming_service(self, streaming_service): 
-    self.streaming_services.pop(streaming_service.id)
+    self.streaming_services.remove(streaming_service.name)
 
   #TODO __str__() name and description
   def _str_(self): 
@@ -20,15 +25,20 @@ class App:
 
 
 if __name__ == '__main__':
-  app = App("Movie Bundle", "abc")
-  s1 = StreamingService("s1", "abc", 80)
-  s2 = StreamingService("s2", "movie", 80)
-  s3 = StreamingService("s3", "movie", 80)
+  app = App("app", "a test app")
+  database = Database()
+
+  comedy = ComedyMovie("Space Balls", 1990, "idk", ["no clue"], "english")
+  action = ActionMovie("No time to die", 1995, "who cares", ["loser1", "loser2"], "english")
+
+  database.add_movie(comedy)
+
+  s1 = StreamingService("disney plus", "disney's streaming service", 10.99, 0.10, database)
 
   app.add_streaming_service(s1)
-  app.add_streaming_service(s2)
-  app.add_streaming_service(s3)
-  print(app.streaming_services)
 
-  app.remove_streaming_service(s2)
-  print(app.streaming_services)
+  app.streaming_services[0].database.add_movie(action)
+
+  print(str(app.streaming_services[0]))
+
+  
