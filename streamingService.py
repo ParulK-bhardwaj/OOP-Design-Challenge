@@ -33,8 +33,8 @@ class StreamingService():
       charge = f"Your Monthly subscription fee is {self.subscription_fee}."
       print(charge) 
 
-  def movies_display(self):
-    pass
+  def __str__(self):
+    return f"name: {self.name} description:{self.description} cost:{self.subscription_fee} Available Movies:{str(self.database)}"
 
 if __name__ == "__main__":
   disney_database = Database()
