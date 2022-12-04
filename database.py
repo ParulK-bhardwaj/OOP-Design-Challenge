@@ -23,13 +23,14 @@ class Database():
             print(movie.__str__())
             print(movie.reason_to_watch())
             
-    # public because it needs to be accessed outside of this class and subclasses
+    # public because it needs to be accessed outside of this class and subclasses.
+    # calling __str__ method for movies as str(movie) as it is a Dunder method.
     def filter_by_genre(self, genre):
         number = 0
         for movie in self.__movie_list:
             if genre.lower() == movie.genre.lower():
                 number += 1             
-                filter = print(f" {movie.genre.title()} Movie List:\n Movie {number}{movie.__str__()}")
+                filter = print(f"{movie.genre.title()} Movie List:\n Movie {number}{str(movie)}")
         return filter
 
 if __name__ == "__main__":
@@ -42,8 +43,9 @@ if __name__ == "__main__":
     movies_entries = [bad_guys, mad_max, star_wars]
     for entry in movies_entries:
         disney_database.add_movie(entry)
+        print(entry.years_old(entry.year))
 
     disney_database.remove_movie(star_wars)
     disney_database.movie_list_display()
-    print(">>>>>>>>>>>>>>>>>>>>Filtered Movie Lsist")
-    print(disney_database.filter_by_genre("Comedy"))
+    print(">>>>>>>>>>>>>>>>>>>>Filtered Movie List")
+    (disney_database.filter_by_genre("Comedy"))
