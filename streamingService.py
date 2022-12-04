@@ -10,25 +10,25 @@ class StreamingService():
     self.id = next(StreamingService.new_id)
     self.database = database
     self.name = name
-    self.description = description
-    self.subscription_fee = subscription_fee
-    self.annual_discount = annual_discount #number -> in percent for e.g. 10
+    self.description = description  
+    self.__subscription_fee = subscription_fee #private: So that it can't be changed outside of this class (We can put getter and setters to be able to access)
+    self.__annual_discount = annual_discount #number; private: So that it can't be changed outside of this class
 
   def welcome(self): 
-    message = f"Hey there! Welcome to {self.name}! We are glad you picked us. We offer unlimited entertainment with only ${self.subscription_fee} per month!"
+    message = f"Hey there! Welcome to {self.name}! We are glad you picked us. We offer unlimited entertainment with only ${self.__subscription_fee} per month!"
     print(message)
 
   def pay_subscription(self, is_annual):
     if is_annual == True:
-      discounted_fee = round(12 * self.subscription_fee * (1 - self.annual_discount/100), 2)
-      charge = f"Your Annual subscription fee is ${discounted_fee}. You saved ${round((12 * self.subscription_fee) - discounted_fee, 2)}."
+      discounted_fee = round(12 * self.__subscription_fee * (1 - self.__annual_discount/100), 2)
+      charge = f"Your Annual subscription fee is ${discounted_fee}. You saved ${round((12 * self.__subscription_fee) - discounted_fee, 2)}."
       print(charge)
     else:
-      charge = f"Your Monthly subscription fee is {self.subscription_fee}."
+      charge = f"Your Monthly subscription fee is {self.__subscription_fee}."
       print(charge) 
 
   def __str__(self):
-    return f"name: {self.name} description:{self.description} cost:{self.subscription_fee} Available Movies:{str(self.database)}"
+    return f"name: {self.name} description:{self.description} cost:{self.__subscription_fee} Available Movies:{str(self.database)}"
 
 if __name__ == "__main__":
   disney_database = Database()

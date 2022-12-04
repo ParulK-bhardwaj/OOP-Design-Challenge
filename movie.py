@@ -10,6 +10,7 @@ class Movie:
         self.cast_members = cast_members #list
         self.language = language #string
 
+    #  The string method depends to the class and we wouldn't access it outside of this class.
     def __str__(self):
         return f"""
         Title: {self.title}
@@ -20,17 +21,17 @@ class Movie:
         Language: {self.language}
         """
 
-    # we don't want subclasses of the class to change/override this method
+    # We don't want subclasses of the class to change/override this method.
     @staticmethod
-    def years_old(self):
-        years = datetime.datetime.now().year - int(self.year)
+    def years_old(year):
+        years = datetime.datetime.now().year - int(year)
         if years == 0:
             return(f"This movie is pretty recent. It just released this year")
         else:
-            return(f"It has been {datetime.datetime.now().year - int(self.year)} years since the movie's release.")
+            return(f"It has been {datetime.datetime.now().year - int(year)} years since the movie's release.")
 
 if __name__ == "__main__":
     pride = Movie('Pride and Prejudice', 2005, 'romantic-drama', 'Joe Wright', ['Keira Knightley', 'Matthew Macfadyen'], 'English')
     print(pride.__str__())
     # Static methods in Python cannot access instance attributes so we have pulled it from the Movie class.
-    pride.years_old(pride.year)
+    print(pride.years_old(pride.year))
