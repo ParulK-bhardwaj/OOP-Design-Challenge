@@ -16,24 +16,33 @@ class App:
   def remove_streaming_service(self, streaming_service): 
     self.streaming_services.remove(streaming_service.name)
 
-  #TODO __str__() name and description
   def _str_(self): 
     description = f'Name: {self.name} description:{self.description}'
+    return description
+
+  def streaming_services_available(self):
+    for service in self.streaming_services:
+      print(service.title())
 
 if __name__ == '__main__':
-  app = App("app", "a test app")
+  movie_bundle = App("Movie Bundle", "At Movie Bundle, you can access movies from different streaming services all in one place.")
   database = Database()
 
-  comedy = ComedyMovie("Space Balls", 1990, "idk", ["no clue"], "english")
-  action = ActionMovie("No time to die", 1995, "who cares", ["loser1", "loser2"], "english")
+  space_balls = ComedyMovie("Space Balls", 1990, "idk", ["no clue"], "english")
+  time_die = ActionMovie("No time to die", 1995, "who cares", ["loser1", "loser2"], "english")
 
-  s1 = StreamingService("disney plus", "disney's streaming service", 10.99, 10, database)
+  disney_plus = StreamingService("disney plus", "disney's streaming service", 10.99, 10, database)
+  abc = StreamingService("abc", "disney's streaming service", 10.99, 10, database)
 
-  app.add_streaming_service(s1)
+  movie_bundle.add_streaming_service(disney_plus)
+  movie_bundle.add_streaming_service(abc)
+  movie_bundle.streaming_services_available()
 
-  app.streaming_services["disney plus"].database.add_movie(action)
-  app.streaming_services["disney plus"].database.add_movie(comedy)
+  movie_bundle.streaming_services["disney plus"].database.add_movie(space_balls)
+  movie_bundle.streaming_services["disney plus"].database.add_movie(time_die)
+  movie_bundle.streaming_services["disney plus"].database.movie_list_display()
+  movie_bundle.streaming_services["disney plus"].database.filter_by_genre("comedy")
 
-  print(str(app.streaming_services["disney plus"]))
+  # print(str(disney_plus.streaming_services["disney plus"]))
 
   
