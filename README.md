@@ -6,4 +6,4 @@ The project aims to design classes and objects that could be used to build the a
 
 
 ## Diagram
-![UML Diagram]([https://github.com/[username]/[reponame]/blob/[branch]/image.jpg](https://github.com/ParulK-bhardwaj/OOP-Design-Challenge/blob/main/UML%20Diagram.png)?raw=true)
+![UML Diagram]([https://github.com/[username]/[reponame]/blob/[branch]/image.jpg](https://github.com/ParulK-bhardwaj/OOP-Design-Challenge/blob/main/UML%20Diagram.png)
