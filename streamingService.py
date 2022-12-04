@@ -8,7 +8,7 @@ class StreamingService():
   new_id = itertools.count()
   def __init__(self, name, description, subscription_fee, annual_discount, database):
     self.id = next(StreamingService.new_id)
-    self.database = Database()
+    self.database = database
     self.name = name
     self.description = description
     self.subscription_fee = subscription_fee
@@ -17,12 +17,6 @@ class StreamingService():
   def welcome(self): 
     message = f"Hey there! Welcome to {self.name}! We are glad you picked us. We offer unlimited entertainment with only ${self.subscription_fee} per month!"
     print(message)
-  
-  def add_streaming_service(self, streaming_service):
-    self.streaming_services[streaming_service.id] = streaming_service
-    
-  def remove_streaming_service(self, streaming_service):
-    self.streaming_services.pop(streaming_service.id)
 
   def pay_subscription(self, is_annual):
     if is_annual == True:
@@ -49,5 +43,5 @@ if __name__ == "__main__":
   disney_plus = StreamingService("Disney+", "abc", 8.99, 10, disney_database)
   disney_plus.pay_subscription(True)
   disney_plus.welcome()
-  print(disney_plus.movies_display())
+  disney_database.movie_list_display()
   
