@@ -10,13 +10,15 @@ class App:
     self.name = name
     self.description = description
   
-  def add_streaming_service(self, streaming_service):
+  # protected so that it can only be invoked from within the implementation of the app class
+  def _add_streaming_service(self, streaming_service):
     self.streaming_services[streaming_service.name] = streaming_service
 
-  def remove_streaming_service(self, streaming_service):
+   # protected so that it can only be invoked from within the implementation of the app class
+  def _remove_streaming_service(self, streaming_service):
     del self.streaming_services[streaming_service.name]
 
-  def _str_(self): 
+  def __str__(self): 
     description = f'Name: {self.name} description:{self.description}'
     return description
 
@@ -35,10 +37,10 @@ if __name__ == '__main__':
   abc = StreamingService("abc", "Abc's streaming service", 8.99, 10, disney_database)
 
   print(">>>>>>>Streaming Services Available>>>>>>>>>>")
-  movie_bundle.add_streaming_service(disney_plus)
-  movie_bundle.add_streaming_service(abc)
+  movie_bundle._add_streaming_service(disney_plus)
+  movie_bundle._add_streaming_service(abc)
   movie_bundle.streaming_services_available()
-  movie_bundle.remove_streaming_service(abc)
+  movie_bundle._remove_streaming_service(abc)
 
   print("\n>>>>>>>Streaming Services Available>>>>>>>>>>")
   movie_bundle.streaming_services_available()

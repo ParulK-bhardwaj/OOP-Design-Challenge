@@ -48,4 +48,4 @@ if __name__ == "__main__":
     disney_database.remove_movie(star_wars)
     disney_database.movie_list_display()
     print(">>>>>>>>>>>>>>>>>>>>Filtered Movie List")
-    (disney_database.filter_by_genre("Comedy"))
+    disney_database.filter_by_genre("Comedy")
